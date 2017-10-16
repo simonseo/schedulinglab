@@ -1,0 +1,36 @@
+The original input was: 1 (0 1 5 1) 
+The (sorted) input is:  1 (0 1 5 1) 
+
+This detailed printout gives the state and remaining burst for each process
+
+Before cycle    0:   unstarted  0.
+Find burst when choosing ready process to run 1804289383
+Before cycle    1:     running  1.
+Before cycle    2:     blocked  1.
+Find burst when choosing ready process to run 846930886
+Before cycle    3:     running  1.
+Before cycle    4:     blocked  1.
+Find burst when choosing ready process to run 1681692777
+Before cycle    5:     running  1.
+Before cycle    6:     blocked  1.
+Find burst when choosing ready process to run 1714636915
+Before cycle    7:     running  1.
+Before cycle    8:     blocked  1.
+Find burst when choosing ready process to run 1957747793
+Before cycle    9:     running  1.
+The scheduling algorithm used was First Come First Served
+
+Process 0:
+	(A,B,C,M) = (0,1,5,1)
+	Finishing time: 9
+	Turnaround time: 9
+	I/O time: 4
+	Waiting time: 0
+
+Summary Data:
+	Finishing time: 9
+	CPU Utilization: 0.555556
+	I/O Utilization: 0.444444
+	Throughput: 11.111111 processes per hundred cycles
+	Average turnaround time: 9.000000
+	Average waiting time: 0.000000

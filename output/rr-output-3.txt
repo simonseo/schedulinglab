@@ -1,0 +1,33 @@
+The original input was: 3 (0 1 5 1) (0 1 5 1) (3 1 5 1) 
+The (sorted) input is:  3 (0 1 5 1) (0 1 5 1) (3 1 5 1) 
+
+The scheduling algorithm used was Round Robbin
+
+Process 0:
+	(A,B,C,M) = (0,1,5,1)
+	Finishing time: 12
+	Turnaround time: 12
+	I/O time: 4
+	Waiting time: 3
+
+Process 1:
+	(A,B,C,M) = (0,1,5,1)
+	Finishing time: 13
+	Turnaround time: 13
+	I/O time: 4
+	Waiting time: 4
+
+Process 2:
+	(A,B,C,M) = (3,1,5,1)
+	Finishing time: 16
+	Turnaround time: 13
+	I/O time: 4
+	Waiting time: 4
+
+Summary Data:
+	Finishing time: 16
+	CPU Utilization: 0.937500
+	I/O Utilization: 0.750000
+	Throughput: 18.750000 processes per hundred cycles
+	Average turnaround time: 12.666667
+	Average waiting time: 3.666667

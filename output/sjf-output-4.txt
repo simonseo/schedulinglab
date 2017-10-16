@@ -1,0 +1,47 @@
+The original input was: 5 (0 3 200 3) (0 9 500 2) (0 20 500 1) (100 1 100 3) (100 100 500 1) 
+The (sorted) input is:  5 (0 3 200 3) (0 9 500 2) (0 20 500 1) (100 1 100 3) (100 100 500 1) 
+
+The scheduling algorithm used was Shortest Job First
+
+Process 0:
+	(A,B,C,M) = (0,3,200,3)
+	Finishing time: 1633
+	Turnaround time: 1633
+	I/O time: 597
+	Waiting time: 836
+
+Process 1:
+	(A,B,C,M) = (0,9,500,2)
+	Finishing time: 2374
+	Turnaround time: 2374
+	I/O time: 996
+	Waiting time: 878
+
+Process 2:
+	(A,B,C,M) = (0,20,500,1)
+	Finishing time: 1550
+	Turnaround time: 1550
+	I/O time: 491
+	Waiting time: 559
+
+Process 3:
+	(A,B,C,M) = (100,1,100,3)
+	Finishing time: 1309
+	Turnaround time: 1209
+	I/O time: 297
+	Waiting time: 812
+
+Process 4:
+	(A,B,C,M) = (100,100,500,1)
+	Finishing time: 1205
+	Turnaround time: 1105
+	I/O time: 476
+	Waiting time: 129
+
+Summary Data:
+	Finishing time: 2374
+	CPU Utilization: 0.758214
+	I/O Utilization: 0.703875
+	Throughput: 0.210615 processes per hundred cycles
+	Average turnaround time: 1574.199951
+	Average waiting time: 642.799988

@@ -1,0 +1,47 @@
+The original input was: 5 (0 3 200 3) (0 9 500 2) (0 20 500 1) (100 1 100 3) (100 100 500 1) 
+The (sorted) input is:  5 (0 3 200 3) (0 9 500 2) (0 20 500 1) (100 1 100 3) (100 100 500 1) 
+
+The scheduling algorithm used was Round Robbin
+
+Process 0:
+	(A,B,C,M) = (0,3,200,3)
+	Finishing time: 1193
+	Turnaround time: 1193
+	I/O time: 597
+	Waiting time: 396
+
+Process 1:
+	(A,B,C,M) = (0,9,500,2)
+	Finishing time: 2115
+	Turnaround time: 2115
+	I/O time: 996
+	Waiting time: 619
+
+Process 2:
+	(A,B,C,M) = (0,20,500,1)
+	Finishing time: 1725
+	Turnaround time: 1725
+	I/O time: 490
+	Waiting time: 735
+
+Process 3:
+	(A,B,C,M) = (100,1,100,3)
+	Finishing time: 897
+	Turnaround time: 797
+	I/O time: 297
+	Waiting time: 400
+
+Process 4:
+	(A,B,C,M) = (100,100,500,1)
+	Finishing time: 1824
+	Turnaround time: 1724
+	I/O time: 475
+	Waiting time: 749
+
+Summary Data:
+	Finishing time: 2115
+	CPU Utilization: 0.851064
+	I/O Utilization: 0.790071
+	Throughput: 0.236407 processes per hundred cycles
+	Average turnaround time: 1510.800049
+	Average waiting time: 579.799988

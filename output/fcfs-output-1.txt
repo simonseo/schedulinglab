@@ -1,0 +1,19 @@
+The original input was: 1 (0 1 5 1) 
+The (sorted) input is:  1 (0 1 5 1) 
+
+The scheduling algorithm used was First Come First Served
+
+Process 0:
+	(A,B,C,M) = (0,1,5,1)
+	Finishing time: 9
+	Turnaround time: 9
+	I/O time: 4
+	Waiting time: 0
+
+Summary Data:
+	Finishing time: 9
+	CPU Utilization: 0.555556
+	I/O Utilization: 0.444444
+	Throughput: 11.111111 processes per hundred cycles
+	Average turnaround time: 9.000000
+	Average waiting time: 0.000000

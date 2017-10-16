@@ -1,0 +1,65 @@
+The original input was: 3 (0 1 5 1) (0 1 5 1) (0 1 10 1) 
+The (sorted) input is:  3 (0 1 5 1) (0 1 5 1) (0 1 10 1) 
+
+This detailed printout gives the state and remaining burst for each process
+
+Before cycle    0:   unstarted  0  unstarted  0  unstarted  0.
+Before cycle    1:     running  1      ready  0      ready  0.
+Before cycle    2:     blocked  1    running  1      ready  0.
+Before cycle    3:     running  1    blocked  1      ready  0.
+Before cycle    4:     blocked  1    running  1      ready  0.
+Before cycle    5:     running  1    blocked  1      ready  0.
+Before cycle    6:     blocked  1    running  1      ready  0.
+Before cycle    7:     running  1    blocked  1      ready  0.
+Before cycle    8:     blocked  1    running  1      ready  0.
+Before cycle    9:     running  1    blocked  1      ready  0.
+Before cycle   10:  terminated  0    running  1      ready  0.
+Before cycle   11:  terminated  0 terminated  0    running  1.
+Before cycle   12:  terminated  0 terminated  0    blocked  1.
+Before cycle   13:  terminated  0 terminated  0    running  1.
+Before cycle   14:  terminated  0 terminated  0    blocked  1.
+Before cycle   15:  terminated  0 terminated  0    running  1.
+Before cycle   16:  terminated  0 terminated  0    blocked  1.
+Before cycle   17:  terminated  0 terminated  0    running  1.
+Before cycle   18:  terminated  0 terminated  0    blocked  1.
+Before cycle   19:  terminated  0 terminated  0    running  1.
+Before cycle   20:  terminated  0 terminated  0    blocked  1.
+Before cycle   21:  terminated  0 terminated  0    running  1.
+Before cycle   22:  terminated  0 terminated  0    blocked  1.
+Before cycle   23:  terminated  0 terminated  0    running  1.
+Before cycle   24:  terminated  0 terminated  0    blocked  1.
+Before cycle   25:  terminated  0 terminated  0    running  1.
+Before cycle   26:  terminated  0 terminated  0    blocked  1.
+Before cycle   27:  terminated  0 terminated  0    running  1.
+Before cycle   28:  terminated  0 terminated  0    blocked  1.
+Before cycle   29:  terminated  0 terminated  0    running  1.
+The scheduling algorithm used was Shortest Job First
+
+Process 0:
+	(A,B,C,M) = (0,1,5,1)
+	Finishing time: 9
+	Turnaround time: 9
+	I/O time: 4
+	Waiting time: 0
+
+Process 1:
+	(A,B,C,M) = (0,1,5,1)
+	Finishing time: 10
+	Turnaround time: 10
+	I/O time: 4
+	Waiting time: 1
+
+Process 2:
+	(A,B,C,M) = (0,1,10,1)
+	Finishing time: 29
+	Turnaround time: 29
+	I/O time: 9
+	Waiting time: 10
+
+Summary Data:
+	Finishing time: 29
+	CPU Utilization: 0.689655
+	I/O Utilization: 0.586207
+	Throughput: 10.344828 processes per hundred cycles
+	Average turnaround time: 16.000000
+	Average waiting time: 3.666667

@@ -1,0 +1,95 @@
+The original input was: 3 (0 1 20 1) (0 1 20 1) (10 1 10 1) 
+The (sorted) input is:  3 (0 1 20 1) (0 1 20 1) (10 1 10 1) 
+
+This detailed printout gives the state and remaining burst for each process
+
+Before cycle    0:   unstarted  0  unstarted  0  unstarted  0.
+Before cycle    1:     running  1      ready  0  unstarted  0.
+Before cycle    2:     blocked  1    running  1  unstarted  0.
+Before cycle    3:     running  1    blocked  1  unstarted  0.
+Before cycle    4:     blocked  1    running  1  unstarted  0.
+Before cycle    5:     running  1    blocked  1  unstarted  0.
+Before cycle    6:     blocked  1    running  1  unstarted  0.
+Before cycle    7:     running  1    blocked  1  unstarted  0.
+Before cycle    8:     blocked  1    running  1  unstarted  0.
+Before cycle    9:     running  1    blocked  1  unstarted  0.
+Before cycle   10:     blocked  1    running  1  unstarted  0.
+Before cycle   11:       ready  0    blocked  1    running  1.
+Before cycle   12:     running  1      ready  0    blocked  1.
+Before cycle   13:     blocked  1      ready  0    running  1.
+Before cycle   14:     running  1      ready  0    blocked  1.
+Before cycle   15:     blocked  1      ready  0    running  1.
+Before cycle   16:     running  1      ready  0    blocked  1.
+Before cycle   17:     blocked  1      ready  0    running  1.
+Before cycle   18:     running  1      ready  0    blocked  1.
+Before cycle   19:     blocked  1      ready  0    running  1.
+Before cycle   20:     running  1      ready  0    blocked  1.
+Before cycle   21:     blocked  1      ready  0    running  1.
+Before cycle   22:     running  1      ready  0    blocked  1.
+Before cycle   23:     blocked  1      ready  0    running  1.
+Before cycle   24:     running  1      ready  0    blocked  1.
+Before cycle   25:     blocked  1      ready  0    running  1.
+Before cycle   26:     running  1      ready  0    blocked  1.
+Before cycle   27:     blocked  1      ready  0    running  1.
+Before cycle   28:     running  1      ready  0    blocked  1.
+Before cycle   29:     blocked  1      ready  0    running  1.
+Before cycle   30:     running  1      ready  0 terminated  0.
+Before cycle   31:     blocked  1    running  1 terminated  0.
+Before cycle   32:     running  1    blocked  1 terminated  0.
+Before cycle   33:     blocked  1    running  1 terminated  0.
+Before cycle   34:     running  1    blocked  1 terminated  0.
+Before cycle   35:     blocked  1    running  1 terminated  0.
+Before cycle   36:     running  1    blocked  1 terminated  0.
+Before cycle   37:     blocked  1    running  1 terminated  0.
+Before cycle   38:     running  1    blocked  1 terminated  0.
+Before cycle   39:     blocked  1    running  1 terminated  0.
+Before cycle   40:     running  1    blocked  1 terminated  0.
+Before cycle   41:  terminated  0    running  1 terminated  0.
+Before cycle   42:  terminated  0    blocked  1 terminated  0.
+Before cycle   43:  terminated  0    running  1 terminated  0.
+Before cycle   44:  terminated  0    blocked  1 terminated  0.
+Before cycle   45:  terminated  0    running  1 terminated  0.
+Before cycle   46:  terminated  0    blocked  1 terminated  0.
+Before cycle   47:  terminated  0    running  1 terminated  0.
+Before cycle   48:  terminated  0    blocked  1 terminated  0.
+Before cycle   49:  terminated  0    running  1 terminated  0.
+Before cycle   50:  terminated  0    blocked  1 terminated  0.
+Before cycle   51:  terminated  0    running  1 terminated  0.
+Before cycle   52:  terminated  0    blocked  1 terminated  0.
+Before cycle   53:  terminated  0    running  1 terminated  0.
+Before cycle   54:  terminated  0    blocked  1 terminated  0.
+Before cycle   55:  terminated  0    running  1 terminated  0.
+Before cycle   56:  terminated  0    blocked  1 terminated  0.
+Before cycle   57:  terminated  0    running  1 terminated  0.
+Before cycle   58:  terminated  0    blocked  1 terminated  0.
+Before cycle   59:  terminated  0    running  1 terminated  0.
+The scheduling algorithm used was Shortest Job First
+
+Process 0:
+	(A,B,C,M) = (0,1,20,1)
+	Finishing time: 40
+	Turnaround time: 40
+	I/O time: 19
+	Waiting time: 1
+
+Process 1:
+	(A,B,C,M) = (0,1,20,1)
+	Finishing time: 59
+	Turnaround time: 59
+	I/O time: 19
+	Waiting time: 20
+
+Process 2:
+	(A,B,C,M) = (10,1,10,1)
+	Finishing time: 29
+	Turnaround time: 19
+	I/O time: 9
+	Waiting time: 0
+
+Summary Data:
+	Finishing time: 59
+	CPU Utilization: 0.847458
+	I/O Utilization: 0.796610
+	Throughput: 5.084746 processes per hundred cycles
+	Average turnaround time: 39.333332
+	Average waiting time: 7.000000

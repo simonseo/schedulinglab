@@ -1,0 +1,81 @@
+The original input was: 3 (0 1 5 1) (0 1 5 1) (0 1 10 1) 
+The (sorted) input is:  3 (0 1 5 1) (0 1 5 1) (0 1 10 1) 
+
+This detailed printout gives the state and remaining burst for each process
+
+Before cycle    0:   unstarted  0  unstarted  0  unstarted  0.
+Find burst when choosing ready process to run 1804289383
+Before cycle    1:     running  1      ready  0      ready  0.
+Find burst when choosing ready process to run 846930886
+Before cycle    2:     blocked  1    running  1      ready  0.
+Find burst when choosing ready process to run 1681692777
+Before cycle    3:       ready  0    blocked  1    running  1.
+Find burst when choosing ready process to run 1714636915
+Before cycle    4:     running  1      ready  0    blocked  1.
+Find burst when choosing ready process to run 1957747793
+Before cycle    5:     blocked  1    running  1      ready  0.
+Find burst when choosing ready process to run 424238335
+Before cycle    6:       ready  0    blocked  1    running  1.
+Find burst when choosing ready process to run 719885386
+Before cycle    7:     running  1      ready  0    blocked  1.
+Find burst when choosing ready process to run 1649760492
+Before cycle    8:     blocked  1    running  1      ready  0.
+Find burst when choosing ready process to run 596516649
+Before cycle    9:       ready  0    blocked  1    running  1.
+Find burst when choosing ready process to run 1189641421
+Before cycle   10:     running  1      ready  0    blocked  1.
+Find burst when choosing ready process to run 1025202362
+Before cycle   11:     blocked  1    running  1      ready  0.
+Find burst when choosing ready process to run 1350490027
+Before cycle   12:       ready  0    blocked  1    running  1.
+Find burst when choosing ready process to run 783368690
+Before cycle   13:     running  1      ready  0    blocked  1.
+Find burst when choosing ready process to run 1102520059
+Before cycle   14:  terminated  0    running  1      ready  0.
+Find burst when choosing ready process to run 2044897763
+Before cycle   15:  terminated  0 terminated  0    running  1.
+Before cycle   16:  terminated  0 terminated  0    blocked  1.
+Find burst when choosing ready process to run 1967513926
+Before cycle   17:  terminated  0 terminated  0    running  1.
+Before cycle   18:  terminated  0 terminated  0    blocked  1.
+Find burst when choosing ready process to run 1365180540
+Before cycle   19:  terminated  0 terminated  0    running  1.
+Before cycle   20:  terminated  0 terminated  0    blocked  1.
+Find burst when choosing ready process to run 1540383426
+Before cycle   21:  terminated  0 terminated  0    running  1.
+Before cycle   22:  terminated  0 terminated  0    blocked  1.
+Find burst when choosing ready process to run 304089172
+Before cycle   23:  terminated  0 terminated  0    running  1.
+Before cycle   24:  terminated  0 terminated  0    blocked  1.
+Find burst when choosing ready process to run 1303455736
+Before cycle   25:  terminated  0 terminated  0    running  1.
+The scheduling algorithm used was Round Robbin
+
+Process 0:
+	(A,B,C,M) = (0,1,5,1)
+	Finishing time: 13
+	Turnaround time: 13
+	I/O time: 4
+	Waiting time: 4
+
+Process 1:
+	(A,B,C,M) = (0,1,5,1)
+	Finishing time: 14
+	Turnaround time: 14
+	I/O time: 4
+	Waiting time: 5
+
+Process 2:
+	(A,B,C,M) = (0,1,10,1)
+	Finishing time: 25
+	Turnaround time: 25
+	I/O time: 9
+	Waiting time: 6
+
+Summary Data:
+	Finishing time: 25
+	CPU Utilization: 0.800000
+	I/O Utilization: 0.680000
+	Throughput: 12.000000 processes per hundred cycles
+	Average turnaround time: 17.333334
+	Average waiting time: 5.000000

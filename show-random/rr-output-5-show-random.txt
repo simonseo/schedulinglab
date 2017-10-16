@@ -1,0 +1,178 @@
+The original input was: 3 (1 5 30 2) (1 5 30 2) (0 5 30 2) 
+The (sorted) input is:  3 (0 5 30 2) (1 5 30 2) (1 5 30 2) 
+
+This detailed printout gives the state and remaining burst for each process
+
+Before cycle    0:   unstarted  0  unstarted  0  unstarted  0.
+Find burst when choosing ready process to run 1804289383
+Before cycle    1:     running  2  unstarted  0  unstarted  0.
+Before cycle    2:     running  1      ready  0      ready  0.
+Find burst when choosing ready process to run 846930886
+Before cycle    3:       ready  0    running  2      ready  0.
+Before cycle    4:       ready  0    running  1      ready  0.
+Find burst when choosing ready process to run 1681692777
+Before cycle    5:       ready  0    blocked  4    running  2.
+Before cycle    6:       ready  0    blocked  3    running  1.
+Before cycle    7:     running  2    blocked  2      ready  0.
+Before cycle    8:     running  1    blocked  1      ready  0.
+Before cycle    9:     blocked  8      ready  0    running  1.
+Find burst when choosing ready process to run 1714636915
+Before cycle   10:     blocked  7    running  1    blocked  6.
+Before cycle   11:     blocked  6    blocked  2    blocked  5.
+Before cycle   12:     blocked  5    blocked  1    blocked  4.
+Find burst when choosing ready process to run 1957747793
+Before cycle   13:     blocked  4    running  2    blocked  3.
+Before cycle   14:     blocked  3    running  1    blocked  2.
+Before cycle   15:     blocked  2    running  2    blocked  1.
+Before cycle   16:     blocked  1    running  1      ready  0.
+Find burst when choosing ready process to run 424238335
+Before cycle   17:       ready  0    blocked  8    running  1.
+Find burst when choosing ready process to run 719885386
+Before cycle   18:     running  2    blocked  7    blocked  2.
+Before cycle   19:     running  1    blocked  6    blocked  1.
+Find burst when choosing ready process to run 1649760492
+Before cycle   20:     blocked  4    blocked  5    running  2.
+Before cycle   21:     blocked  3    blocked  4    running  1.
+Before cycle   22:     blocked  2    blocked  3    running  1.
+Before cycle   23:     blocked  1    blocked  2    blocked  6.
+Find burst when choosing ready process to run 596516649
+Before cycle   24:     running  2    blocked  1    blocked  5.
+Before cycle   25:     running  1      ready  0    blocked  4.
+Find burst when choosing ready process to run 1189641421
+Before cycle   26:       ready  0    running  2    blocked  3.
+Before cycle   27:       ready  0    running  1    blocked  2.
+Before cycle   28:     running  2    blocked  4    blocked  1.
+Before cycle   29:     running  1    blocked  3      ready  0.
+Find burst when choosing ready process to run 1025202362
+Before cycle   30:       ready  0    blocked  2    running  2.
+Before cycle   31:       ready  0    blocked  1    running  1.
+Before cycle   32:     running  1      ready  0      ready  0.
+Find burst when choosing ready process to run 1350490027
+Before cycle   33:     blocked 10    running  2      ready  0.
+Before cycle   34:     blocked  9    running  1      ready  0.
+Before cycle   35:     blocked  8      ready  0    running  1.
+Before cycle   36:     blocked  7    running  1    blocked  6.
+Before cycle   37:     blocked  6    blocked  6    blocked  5.
+Before cycle   38:     blocked  5    blocked  5    blocked  4.
+Before cycle   39:     blocked  4    blocked  4    blocked  3.
+Before cycle   40:     blocked  3    blocked  3    blocked  2.
+Before cycle   41:     blocked  2    blocked  2    blocked  1.
+Find burst when choosing ready process to run 783368690
+Before cycle   42:     blocked  1    blocked  1    running  1.
+Find burst when choosing ready process to run 1102520059
+Before cycle   43:     running  2      ready  0    blocked  2.
+Before cycle   44:     running  1      ready  0    blocked  1.
+Find burst when choosing ready process to run 2044897763
+Before cycle   45:       ready  0    running  2      ready  0.
+Before cycle   46:       ready  0    running  1      ready  0.
+Before cycle   47:     running  2      ready  0      ready  0.
+Before cycle   48:     running  1      ready  0      ready  0.
+Find burst when choosing ready process to run 1967513926
+Before cycle   49:       ready  0      ready  0    running  2.
+Before cycle   50:       ready  0      ready  0    running  1.
+Before cycle   51:       ready  0    running  2    blocked  4.
+Before cycle   52:       ready  0    running  1    blocked  3.
+Before cycle   53:     running  1    blocked  8    blocked  2.
+Before cycle   54:     blocked 10    blocked  7    blocked  1.
+Find burst when choosing ready process to run 1365180540
+Before cycle   55:     blocked  9    blocked  6    running  1.
+Before cycle   56:     blocked  8    blocked  5    blocked  2.
+Before cycle   57:     blocked  7    blocked  4    blocked  1.
+Find burst when choosing ready process to run 1540383426
+Before cycle   58:     blocked  6    blocked  3    running  2.
+Before cycle   59:     blocked  5    blocked  2    running  1.
+Before cycle   60:     blocked  4    blocked  1    blocked  4.
+Find burst when choosing ready process to run 304089172
+Before cycle   61:     blocked  3    running  2    blocked  3.
+Before cycle   62:     blocked  2    running  1    blocked  2.
+Before cycle   63:     blocked  1    running  1    blocked  1.
+Find burst when choosing ready process to run 1303455736
+Before cycle   64:     running  2    blocked  6      ready  0.
+Before cycle   65:     running  1    blocked  5      ready  0.
+Find burst when choosing ready process to run 35005211
+Before cycle   66:     blocked  4    blocked  4    running  2.
+Before cycle   67:     blocked  3    blocked  3    running  1.
+Before cycle   68:     blocked  2    blocked  2    blocked  4.
+Before cycle   69:     blocked  1    blocked  1    blocked  3.
+Find burst when choosing ready process to run 521595368
+Before cycle   70:     running  2      ready  0    blocked  2.
+Before cycle   71:     running  1      ready  0    blocked  1.
+Find burst when choosing ready process to run 294702567
+Before cycle   72:       ready  0    running  2      ready  0.
+Before cycle   73:       ready  0    running  1      ready  0.
+Before cycle   74:     running  2      ready  0      ready  0.
+Before cycle   75:     running  1      ready  0      ready  0.
+Find burst when choosing ready process to run 1726956429
+Before cycle   76:     blocked  8      ready  0    running  2.
+Before cycle   77:     blocked  7      ready  0    running  1.
+Before cycle   78:     blocked  6    running  1      ready  0.
+Before cycle   79:     blocked  5    blocked  6    running  2.
+Before cycle   80:     blocked  4    blocked  5    running  1.
+Before cycle   81:     blocked  3    blocked  4    running  1.
+Before cycle   82:     blocked  2    blocked  3    blocked 10.
+Before cycle   83:     blocked  1    blocked  2    blocked  9.
+Find burst when choosing ready process to run 336465782
+Before cycle   84:     running  2    blocked  1    blocked  8.
+Before cycle   85:     running  1      ready  0    blocked  7.
+Find burst when choosing ready process to run 861021530
+Before cycle   86:       ready  0    running  1    blocked  6.
+Before cycle   87:     running  1    blocked  2    blocked  5.
+Before cycle   88:     blocked  6    blocked  1    blocked  4.
+Find burst when choosing ready process to run 278722862
+Before cycle   89:     blocked  5    running  2    blocked  3.
+Before cycle   90:     blocked  4    running  1    blocked  2.
+Before cycle   91:     blocked  3    running  1    blocked  1.
+Find burst when choosing ready process to run 233665123
+Before cycle   92:     blocked  2    blocked  6    running  2.
+Before cycle   93:     blocked  1    blocked  5    running  1.
+Find burst when choosing ready process to run 2145174067
+Before cycle   94:     running  2    blocked  4      ready  0.
+Before cycle   95:     running  1    blocked  3      ready  0.
+Before cycle   96:       ready  0    blocked  2    running  2.
+Before cycle   97:       ready  0    blocked  1    running  1.
+Before cycle   98:     running  1      ready  0    blocked  8.
+Find burst when choosing ready process to run 468703135
+Before cycle   99:     blocked  6    running  1    blocked  7.
+Before cycle  100:     blocked  5    blocked  2    blocked  6.
+Before cycle  101:     blocked  4    blocked  1    blocked  5.
+Find burst when choosing ready process to run 1101513929
+Before cycle  102:     blocked  3    running  2    blocked  4.
+Before cycle  103:     blocked  2    running  1    blocked  3.
+Before cycle  104:     blocked  1    running  2    blocked  2.
+Find burst when choosing ready process to run 1801979802
+Before cycle  105:     running  2 terminated  0    blocked  1.
+Before cycle  106:     running  1 terminated  0      ready  0.
+Find burst when choosing ready process to run 1315634022
+Before cycle  107:  terminated  0 terminated  0    running  2.
+Before cycle  108:  terminated  0 terminated  0    running  1.
+Before cycle  109:  terminated  0 terminated  0    running  1.
+The scheduling algorithm used was Round Robbin
+
+Process 0:
+	(A,B,C,M) = (0,5,30,2)
+	Finishing time: 106
+	Turnaround time: 106
+	I/O time: 56
+	Waiting time: 20
+
+Process 1:
+	(A,B,C,M) = (1,5,30,2)
+	Finishing time: 104
+	Turnaround time: 103
+	I/O time: 54
+	Waiting time: 19
+
+Process 2:
+	(A,B,C,M) = (1,5,30,2)
+	Finishing time: 109
+	Turnaround time: 108
+	I/O time: 54
+	Waiting time: 24
+
+Summary Data:
+	Finishing time: 109
+	CPU Utilization: 0.825688
+	I/O Utilization: 0.825688
+	Throughput: 2.752294 processes per hundred cycles
+	Average turnaround time: 105.666664
+	Average waiting time: 21.000000

@@ -1,0 +1,70 @@
+The original input was: 3 (0 1 5 1) (0 1 5 1) (3 1 5 1) 
+The (sorted) input is:  3 (0 1 5 1) (0 1 5 1) (3 1 5 1) 
+
+This detailed printout gives the state and remaining burst for each process
+
+Before cycle    0:   unstarted  0  unstarted  0  unstarted  0.
+Find burst when choosing ready process to run 1804289383
+Before cycle    1:     running  1      ready  0  unstarted  0.
+Find burst when choosing ready process to run 846930886
+Before cycle    2:     blocked  1    running  1  unstarted  0.
+Find burst when choosing ready process to run 1681692777
+Before cycle    3:     running  1    blocked  1  unstarted  0.
+Find burst when choosing ready process to run 1714636915
+Before cycle    4:     blocked  1    running  1      ready  0.
+Find burst when choosing ready process to run 1957747793
+Before cycle    5:     running  1    blocked  1      ready  0.
+Find burst when choosing ready process to run 424238335
+Before cycle    6:     blocked  1    running  1      ready  0.
+Find burst when choosing ready process to run 719885386
+Before cycle    7:     running  1    blocked  1      ready  0.
+Find burst when choosing ready process to run 1649760492
+Before cycle    8:     blocked  1    running  1      ready  0.
+Find burst when choosing ready process to run 596516649
+Before cycle    9:     running  1    blocked  1      ready  0.
+Find burst when choosing ready process to run 1189641421
+Before cycle   10:  terminated  0    running  1      ready  0.
+Find burst when choosing ready process to run 1025202362
+Before cycle   11:  terminated  0 terminated  0    running  1.
+Before cycle   12:  terminated  0 terminated  0    blocked  1.
+Find burst when choosing ready process to run 1350490027
+Before cycle   13:  terminated  0 terminated  0    running  1.
+Before cycle   14:  terminated  0 terminated  0    blocked  1.
+Find burst when choosing ready process to run 783368690
+Before cycle   15:  terminated  0 terminated  0    running  1.
+Before cycle   16:  terminated  0 terminated  0    blocked  1.
+Find burst when choosing ready process to run 1102520059
+Before cycle   17:  terminated  0 terminated  0    running  1.
+Before cycle   18:  terminated  0 terminated  0    blocked  1.
+Find burst when choosing ready process to run 2044897763
+Before cycle   19:  terminated  0 terminated  0    running  1.
+The scheduling algorithm used was Shortest Job First
+
+Process 0:
+	(A,B,C,M) = (0,1,5,1)
+	Finishing time: 9
+	Turnaround time: 9
+	I/O time: 4
+	Waiting time: 0
+
+Process 1:
+	(A,B,C,M) = (0,1,5,1)
+	Finishing time: 10
+	Turnaround time: 10
+	I/O time: 4
+	Waiting time: 1
+
+Process 2:
+	(A,B,C,M) = (3,1,5,1)
+	Finishing time: 19
+	Turnaround time: 16
+	I/O time: 4
+	Waiting time: 7
+
+Summary Data:
+	Finishing time: 19
+	CPU Utilization: 0.789474
+	I/O Utilization: 0.631579
+	Throughput: 15.789474 processes per hundred cycles
+	Average turnaround time: 11.666667
+	Average waiting time: 2.666667

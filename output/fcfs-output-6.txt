@@ -1,0 +1,33 @@
+The original input was: 3 (0 1 5 1) (0 1 5 1) (0 1 10 1) 
+The (sorted) input is:  3 (0 1 5 1) (0 1 5 1) (0 1 10 1) 
+
+The scheduling algorithm used was First Come First Served
+
+Process 0:
+	(A,B,C,M) = (0,1,5,1)
+	Finishing time: 13
+	Turnaround time: 13
+	I/O time: 4
+	Waiting time: 4
+
+Process 1:
+	(A,B,C,M) = (0,1,5,1)
+	Finishing time: 14
+	Turnaround time: 14
+	I/O time: 4
+	Waiting time: 5
+
+Process 2:
+	(A,B,C,M) = (0,1,10,1)
+	Finishing time: 25
+	Turnaround time: 25
+	I/O time: 9
+	Waiting time: 6
+
+Summary Data:
+	Finishing time: 25
+	CPU Utilization: 0.800000
+	I/O Utilization: 0.680000
+	Throughput: 12.000000 processes per hundred cycles
+	Average turnaround time: 17.333334
+	Average waiting time: 5.000000

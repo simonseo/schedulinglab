@@ -1,0 +1,33 @@
+The original input was: 3 (0 1 20 1) (0 1 20 1) (10 1 10 1) 
+The (sorted) input is:  3 (0 1 20 1) (0 1 20 1) (10 1 10 1) 
+
+The scheduling algorithm used was Shortest Job First
+
+Process 0:
+	(A,B,C,M) = (0,1,20,1)
+	Finishing time: 40
+	Turnaround time: 40
+	I/O time: 19
+	Waiting time: 1
+
+Process 1:
+	(A,B,C,M) = (0,1,20,1)
+	Finishing time: 59
+	Turnaround time: 59
+	I/O time: 19
+	Waiting time: 20
+
+Process 2:
+	(A,B,C,M) = (10,1,10,1)
+	Finishing time: 29
+	Turnaround time: 19
+	I/O time: 9
+	Waiting time: 0
+
+Summary Data:
+	Finishing time: 59
+	CPU Utilization: 0.847458
+	I/O Utilization: 0.796610
+	Throughput: 5.084746 processes per hundred cycles
+	Average turnaround time: 39.333332
+	Average waiting time: 7.000000
