@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*- 
 # @File Name: process.py
 # @Created:   2017-10-16 11:31:12  seo (simon.seo@nyu.edu) 
-# @Updated:   2017-10-16 13:44:27  Simon Seo (simon.seo@nyu.edu)
+# @Updated:   2017-10-16 14:03:27  Simon Seo (simon.seo@nyu.edu)
 
 
 class Process():
@@ -16,6 +16,7 @@ class Process():
 
 		self.state = 'unstarted' #unstarted, ready, running, blocked, terminated
 		self.burst = 0           #time left for any state
+		self.prevBurst = 0       #length of previous burst (used for calculating ioburst)
 		self.Cleft = C           #CPU time left
 		self.q = 0               #quantum left for RR
 		self.timeEnteredReady = None    #to find the earliest one
@@ -27,6 +28,7 @@ class Process():
 		self.runningTime = 0        #count time in running state
 
 	def __lt__(self, p):
+		'''priority: arrival time, input order'''
 		return (self.A < p.A) if (self.A != p.A) else (self.i < p.i)
 
 	def __repr__(self):
@@ -68,11 +70,14 @@ class Process():
 	def ratio(self, now):
 		T = self.turnaroundTime
 		t = max(1, self.runningTime)
-		r = T/t
-		return 
+		return T/t
 
-	def function(self):
-		pass
+	def setRandomBurst(self):
+		self.burst = r.randomOS(self.B)
+		self.prevBurst = self.burst
+
+	def setIOBurst(self):
+		self.burst = self.M * self.prevBurst #Assumes that prevBurst was CPUBurst
 
 class ProcessTable(list):
 	"""docstring for ProcessTable"""
@@ -93,11 +98,11 @@ class ProcessTable(list):
 		return result
 		# 2 (0 1 5 1) (0 1 5 1) 
 
-	def sortByArrival(self, p):
-		return p.A
+	def sortByArrival(self):
+		self.sort(key=lambda p: p.A)
 
 	def sortByInput(self, p):
-		return p.i
+		self.sort(key=lambda p: p.i)
 
 
 
