@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*- 
 # @File Name: process.py
 # @Created:   2017-10-16 11:31:12  seo (simon.seo@nyu.edu) 
-# @Updated:   2017-10-17 05:56:59  Simon Seo (simon.seo@nyu.edu)
+# @Updated:   2017-10-17 13:01:50  Simon Seo (simon.seo@nyu.edu)
 import glb
 
 class Process():
@@ -40,18 +40,14 @@ class Process():
 		return stateStr + burstStr
 
 	def printSummary(self):
-		print('''	(A,B,C,M) = ({},{},{},{})
-	Finishing time: {}
-	Turnaround time: {}
-	I/O time: {}
-	Waiting time: {}\n''' \
+		print('''	(A,B,C,M) = ({},{},{},{})\n\tFinishing time: {}\n\tTurnaround time: {}\n\tI/O time: {}\n\tWaiting time: {}\n''' \
 			.format(self.A, self.B, self.C, self.M, 
 				self.finishTime, self.turnaroundTime, 
 				self.ioTime, self.waitingTime)
 			)
 
 	def tick(self):
-		'''gateway function for updating state and time variables'''
+		'''recalculate time variables'''
 		state = self.state
 		if state not in ['unstarted', 'terminated']:
 			self.turnaroundTime += 1
@@ -68,6 +64,7 @@ class Process():
 		return
 
 	def updateState(self):
+		'''update state based on new time calculations'''
 		now = glb.tk.getNow()
 		if self.state == 'running':
 			if self.Cleft == 0:
@@ -86,8 +83,10 @@ class Process():
 				self.state = 'ready'
 				self.timeEnteredReady = now
 		elif self.state == 'ready':
+			# ready processes are handled by the scheduler algorithm
 			pass
 		elif self.state == 'terminated':
+			# terminated processes are left alone
 			pass
 
 		return self.state
@@ -177,6 +176,9 @@ class ProcessTable(list):
 			if f(p):
 				result.append(p)
 		return result
+
+	def getByState(self, state):
+		return self.getAll(lambda p: p.state == state)
 
 	def tickAll(self):
 		if len(self.getAll(lambda p: p.state == 'blocked')) > 0:

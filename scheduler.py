@@ -2,13 +2,13 @@
 # -*- coding: utf-8 -*- 
 # @File Name: scheduler.py
 # @Created:   2017-10-13 18:57:02  seo (simon.seo@nyu.edu) 
-# @Updated:   2017-10-17 06:04:13  Simon Seo (simon.seo@nyu.edu)
+# @Updated:   2017-10-17 13:04:03  Simon Seo (simon.seo@nyu.edu)
 import sys
 from copy import deepcopy as copy
 import glb
 from process import Process, ProcessTable
-from util import Random, parseInput
-from algorithms import *
+from util import parseInput
+from algorithms import FCFS, RR, SJF, HPRN
 
 def main():
 	ps = ProcessTable()
@@ -32,10 +32,9 @@ if __name__ == '__main__':
 	if len(sys.argv) == 1:
 		sys.argv.append('--verbose')
 		sys.argv.append('--show-random')
-		sys.argv.append('input/input-4.txt')
+		sys.argv.append('input/input-1.txt')
 	glb.init()
 	glb.v = '--verbose' in sys.argv
 	glb.sr = '--show-random' in sys.argv
 	glb.f = sys.argv[-1]
-	glb.r = Random('random-numbers.txt')
 	main()
