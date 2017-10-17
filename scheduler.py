@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*- 
 # @File Name: scheduler.py
 # @Created:   2017-10-13 18:57:02  seo (simon.seo@nyu.edu) 
-# @Updated:   2017-10-17 03:17:05  Simon Seo (simon.seo@nyu.edu)
+# @Updated:   2017-10-17 04:21:32  Simon Seo (simon.seo@nyu.edu)
 import sys
 from copy import deepcopy as copy
 import glb
@@ -22,8 +22,8 @@ def main():
 	if glb.v:
 		print('This detailed printout gives the state and remaining burst for each process\n')
 
-	FCFS(copy(ps))
-	# RR(copy(ps), quantum=2)
+	# FCFS(copy(ps))
+	RR(copy(ps), quantum=2)
 	# SJF(copy(ps))
 	# HPRN(copy(ps))
 	# print(ps) # same as ps.__str__()
@@ -32,8 +32,8 @@ def main():
 if __name__ == '__main__':
 	if len(sys.argv) == 1:
 		sys.argv.append('--verbose')
-		sys.argv.append('--show-random')
-		sys.argv.append('input/input-5.txt')
+		# sys.argv.append('--show-random')
+		sys.argv.append('input/input-4.txt')
 	glb.init()
 	glb.v = '--verbose' in sys.argv
 	glb.sr = '--show-random' in sys.argv

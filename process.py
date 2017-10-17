@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*- 
 # @File Name: process.py
 # @Created:   2017-10-16 11:31:12  seo (simon.seo@nyu.edu) 
-# @Updated:   2017-10-17 03:30:39  Simon Seo (simon.seo@nyu.edu)
+# @Updated:   2017-10-17 04:17:53  Simon Seo (simon.seo@nyu.edu)
 import glb
 
 class Process():
@@ -35,7 +35,7 @@ class Process():
 		return "({} {} {} {})".format(self.A, self.B, self.C, self.M)
 
 	def __str__(self):
-		stateStr = (' '*11 + self.state)[-11:]
+		stateStr = (' '*10 + self.state)[-10:]
 		burstStr = (' '*3 + str(self.burst))[-3:]
 		return stateStr + burstStr
 
@@ -58,6 +58,7 @@ class Process():
 			self.turnaroundTime += 1
 			if state == 'running':
 				self.Cleft -= 1
+				self.q -= 1 if glb.q > 0 else 0
 				self.runningTime += 1
 			elif state == 'ready':
 				self.waitingTime += 1
@@ -79,6 +80,7 @@ class Process():
 		elif self.state == 'unstarted':
 			if now == self.A:
 				self.state = 'ready'
+				self.timeEnteredReady = now
 		elif self.state == 'blocked':
 			if self.burst == 0:
 				self.state = 'ready'
@@ -107,6 +109,7 @@ class Process():
 
 	def run(self):
 		self.state = 'running'
+		self.q = glb.q
 		self.setRandomBurst()
 
 	def block(self):
@@ -118,6 +121,7 @@ class ProcessTable(list):
 	def __init__(self):
 		super(ProcessTable, self).__init__()
 		self.finishTime = 0
+		self.IOutil = 0
 
 	def __str__(self):
 		#    unstarted  0   unstarted  0
@@ -137,8 +141,16 @@ class ProcessTable(list):
 		self.sort(key=lambda p: p.A)
 		return self
 
-	def sortByInput(self, p):
+	def sortByInput(self):
 		self.sort(key=lambda p: p.i)
+		return self
+
+	def sortByReady(self):
+		self.sort(key=lambda p: p.timeEnteredReady)
+		return self
+
+	def sortByRatio(self):
+		self.sort(key=lambda p: p.ratio())
 		return self
 
 	def finished(self):
@@ -156,6 +168,8 @@ class ProcessTable(list):
 		return result
 
 	def tickAll(self):
+		if len(self.getAll(lambda p: p.state == 'blocked')) > 0:
+			self.IOutil += 1
 		for p in self:
 			p.tick()
 
@@ -168,7 +182,7 @@ class ProcessTable(list):
 		psl = len(self)
 		finishTime = self.finishTime
 		CPUutil = sum(list([p.runningTime for p in self])) / finishTime
-		IOutil =  sum(list([p.ioTime for p in self])) / finishTime
+		IOutil = self.IOutil / finishTime
 		Throughput = 100*psl/finishTime
 		avgTurnaround = sum(list([p.turnaroundTime for p in self])) / psl
 		avgWaiting = sum(list([p.waitingTime for p in self])) / psl

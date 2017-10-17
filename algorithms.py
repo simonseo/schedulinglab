@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*- 
 # @File Name: algorithms.py
 # @Created:   2017-10-16 13:50:51  seo (simon.seo@nyu.edu) 
-# @Updated:   2017-10-17 03:32:15  Simon Seo (simon.seo@nyu.edu)
+# @Updated:   2017-10-17 04:18:42  Simon Seo (simon.seo@nyu.edu)
 import sys
 import glb
 from util import Timekeeper
@@ -19,17 +19,12 @@ class FCFS():
 		ps = self.ps
 		while not ps.finished():
 			if glb.v:
-				print('Before cycle{}:{}.'.format((' '*5+str(tk.getNow()))[-5:],ps))
+				print('Before cycle{}: {}.'.format((' '*5+str(tk.getNow()))[-5:],ps))
 			ps.tickAll()
-			# print('All:', ps)
 			ps.updateStateAll()
-			# print('All:', ps)
 			if len(ps.getAll(lambda p: p.state == 'running')) == 0:
-				# print('All:', ps)
-				# print('running:', ps.getAll(lambda p: p.state == 'running'))
-				readyps = ps.getAll(lambda p: p.state == 'ready').sortByArrival()
+				readyps = ps.getAll(lambda p: p.state == 'ready').sortByInput().sortByArrival().sortByReady()
 				if len(readyps) > 0:
-					# print('ready:', readyps)
 					readyps.pop(0).run()
 			tk.tick()
 		print('The scheduling algorithm used was First Come First Served\n')
@@ -39,19 +34,24 @@ class RR():
 	"""Round Robin"""
 	def __init__(self, ps, quantum=2):
 		self.ps = ps
-		self.q = quantum
+		glb.q = quantum
 		glb.tk = Timekeeper()
 		self.main()
 	def main(self):
 		tk = glb.tk
 		ps = self.ps
-		psl = len(ps)
 		while not ps.finished():
 			if glb.v:
-				print('Before cycle{}:{}.'.format((' '*5+str(tk.getNow()))[-5:],ps))
-			
-			break
-		pass
+				print('Before cycle{}: {}.'.format((' '*5+str(tk.getNow()))[-5:],ps))
+			ps.tickAll()
+			ps.updateStateAll()
+			if len(ps.getAll(lambda p: p.state == 'running')) == 0:
+				readyps = ps.getAll(lambda p: p.state == 'ready').sortByInput().sortByArrival().sortByReady()
+				if len(readyps) > 0:
+					readyps.pop(0).run()
+			tk.tick()
+		print('The scheduling algorithm used was Round Robbin\n')
+		ps.printSummaryAll()
 
 class SJF():
 	"""Shortest Job First: total time remaining (i.e., the
