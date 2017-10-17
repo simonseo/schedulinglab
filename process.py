@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*- 
 # @File Name: process.py
 # @Created:   2017-10-16 11:31:12  seo (simon.seo@nyu.edu) 
-# @Updated:   2017-10-17 05:18:42  Simon Seo (simon.seo@nyu.edu)
+# @Updated:   2017-10-17 05:44:15  Simon Seo (simon.seo@nyu.edu)
 import glb
 
 class Process():
@@ -36,7 +36,7 @@ class Process():
 
 	def __str__(self):
 		stateStr = (' '*10 + self.state)[-10:]
-		burstStr = (' '*3 + str(self.burst))[-3:]
+		burstStr = (' '*3 + str(self.burst if not glb.q else self.q))[-3:]
 		return stateStr + burstStr
 
 	def printSummary(self):
@@ -54,15 +54,16 @@ class Process():
 		'''gateway function for updating state and time variables'''
 		state = self.state
 		if state not in ['unstarted', 'terminated']:
-			self.burst -= 1 if self.burst > 0 else 0
 			self.turnaroundTime += 1
 			if state == 'running':
+				self.burst -= 1 if self.burst > 0 else 0
 				self.Cleft -= 1
 				self.q -= 1 if glb.q > 0 else 0
 				self.runningTime += 1
 			elif state == 'ready':
 				self.waitingTime += 1
 			elif state == 'blocked':
+				self.burst -= 1 if self.burst > 0 else 0
 				self.ioTime += 1
 		return
 
@@ -75,8 +76,7 @@ class Process():
 			elif self.burst == 0:
 				self.block()
 			elif self.q == 0:
-				self.state = 'ready'
-				self.timeEnteredReady = now
+				self.preempt()
 		elif self.state == 'unstarted':
 			if now == self.A:
 				self.state = 'ready'
@@ -110,11 +110,18 @@ class Process():
 		self.state = 'running'
 		if glb.q:
 			self.q = glb.q
-		self.setRandomBurst()
+		if self.burst == 0:
+			self.setRandomBurst()
 
 	def block(self):
 		self.state = 'blocked'
 		self.setIOBurst()
+
+	def preempt(self):
+		self.state = 'ready'
+		self.timeEnteredReady = glb.tk.getNow()
+		# self.q_burst = self.burst
+		# self.burst 
 
 class ProcessTable(list):
 	"""docstring for ProcessTable"""

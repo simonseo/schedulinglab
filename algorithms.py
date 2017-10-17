@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*- 
 # @File Name: algorithms.py
 # @Created:   2017-10-16 13:50:51  seo (simon.seo@nyu.edu) 
-# @Updated:   2017-10-17 05:19:40  Simon Seo (simon.seo@nyu.edu)
+# @Updated:   2017-10-17 05:46:30  Simon Seo (simon.seo@nyu.edu)
 import sys
 import glb
 from util import Timekeeper
@@ -46,10 +46,9 @@ class RR():
 			ps.tickAll()
 			ps.updateStateAll()
 			if len(ps.getAll(lambda p: p.state == 'running')) == 0:
-				readyps = ps.getAll(lambda p: p.state == 'ready').sortByReady()
+				readyps = ps.getAll(lambda p: p.state == 'ready').sortByInput().sortByArrival().sortByReady()
 				if len(readyps) > 0:
-					readyp = readyps.pop(0)
-					readyp.run()
+					readyps.pop(0).run()
 			tk.tick()
 		print('The scheduling algorithm used was Round Robbin\n')
 		ps.printSummaryAll()
