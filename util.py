@@ -2,18 +2,15 @@
 # -*- coding: utf-8 -*- 
 # @File Name: util.py
 # @Created:   2017-10-16 11:31:40  seo (simon.seo@nyu.edu) 
-# @Updated:   2017-10-17 00:53:17  Simon Seo (simon.seo@nyu.edu)
+# @Updated:   2017-10-17 02:02:24  Simon Seo (simon.seo@nyu.edu)
 import glb
 
 class Timekeeper():
 	"""Tracks time for all processes"""
 	def __init__(self):
 		self.now = 0
-	def tick(self, ps=None):
+	def tick(self):
 		self.now += 1
-		if ps is not None:
-			for p in ps:
-				p.tick()
 	def getNow(self):
 		return self.now
 
