@@ -2,8 +2,9 @@
 # -*- coding: utf-8 -*- 
 # @File Name: util.py
 # @Created:   2017-10-16 11:31:40  seo (simon.seo@nyu.edu) 
-# @Updated:   2017-10-17 02:02:24  Simon Seo (simon.seo@nyu.edu)
+# @Updated:   2017-10-17 13:22:23  Simon Seo (simon.seo@nyu.edu)
 import glb
+import os
 
 class Timekeeper():
 	"""Tracks time for all processes"""
@@ -17,6 +18,8 @@ class Timekeeper():
 class Random():
 	"""Random variable generator"""
 	def __init__(self, filename):
+		if not os.path.isfile(filename):
+			raise Exception('The input file does not exist. The input filename should be the last argument.')
 		self.file = open(filename,'r')
 	def randInt(self):
 		return int(self.file.readline().strip())
@@ -29,6 +32,8 @@ class Random():
 def parseInput(filename):
 	"""returns list of process specs"""
 	result = []
+	if not os.path.isfile(filename):
+		raise Exception('The input file does not exist. The input filename should be the last argument.')
 	with open(filename, 'r') as f:
 		nums = []
 		for l in f:

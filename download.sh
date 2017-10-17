@@ -3,6 +3,8 @@ mkdir output
 mkdir detailed
 mkdir show-random
 
+curl "http://cs.nyu.edu/~gottlieb/courses/os202/labs/random-numbers" > random-numbers.txt
+
 cd input
 for i in {1..7}
   do

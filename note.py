@@ -1,45 +1,42 @@
-class MyClass:
- def __lt__(self, other):
-      # return comparison
- def __le__(self, other)
-      # return comparison
- def __eq__(self, other)
-      # return comparison
- def __ne__(self, other)
-      # return comparison
- def __gt__(self, other)
-      # return comparison
- def __ge__(self, other)
-      # return comparison
+# Scheduling Lab
 
-class MC(type):
-  def __repr__(self):
-    return 'Wahaha!'
-  def __str__(self):
-    return 'Wahaha!'
+This is a lab exercise from NYU `CSIC-UA 202 Operating Systems` that emulates how different scheduling algorithms work in an OS. The algorithms implemented are:
+
+	1. FCFS (First Come First Serve)
+	2. RR (Round Robin)
+	3. SJF (Shortest Job First)
+	4. HPRN (Highest Penalty Ratio Next)
+
+## Setup
+
+To run this program you need `python3`. It does not use external libraries. Download/clone this repository or cd into the repository. The sample inputs from Professor Gottlieb's website are already in the repository but if you wish you can download them with the following commandline in the repository directory.
+
+```sh
+$ sh download.sh
+```
+
+Inside `glb.py` are the global variables used for this program. The only thing you might want to change is the location of the random number file. If you downloaded the files by using the `download.sh` file or by cloning the entire repo, the random number file should be in the root of the repository.
+
+```py
+rf = 'random-numbers.txt'
+```
+
+# Run
+
+If you have the input files and the random number file, you can generally use this command to run the program:
+
+```sh
+$ python3 scheduler.py <input-filename>
+```
+
+Additionally there are `--verbose` and `--show-random` options to show the state and burst of every process at each cycle and to show the random number selected, respectively.
+```sh
+$ python3 scheduler.py --verbose <input-filename>
+$ python3 scheduler.py --show-random <input-filename>
+$ python3 scheduler.py --verbose --show-random <input-filename>
+```
+
+If the program is run without additional arguments it will automatically take `input/input-1.txt` as input with both `--verbose` and `--show-random` options.
 
 
 
-
-from operator import attrgetter
-from functools import partial
-valget = attrgetter('value')
-maxval = partial(max, key=valget)
-minval = partial(max, key=valget)
-sortedval = partial(sorted, key=valget)
-sortval = partial(list.sort, key=valget)
-
-Where you call them just as maxval(obj_list) instead of max(obj_list) etc., 
-and sortval(obj_list) to sort in-place instead of obj_list.sort()
-
-FCFS
-1. create array of processes
-2. read in file. init as unstarted
-3. print original input
-4. sort according to arrival time
-5. print sorted processes
-while unfinished:
-6. print processes
-7. put unstarted process into ready
-8. if there are no running process then retrieve earliest from ready
-9. 
