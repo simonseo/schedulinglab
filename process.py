@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*- 
 # @File Name: process.py
 # @Created:   2017-10-16 11:31:12  seo (simon.seo@nyu.edu) 
-# @Updated:   2017-10-17 05:44:15  Simon Seo (simon.seo@nyu.edu)
+# @Updated:   2017-10-17 05:56:59  Simon Seo (simon.seo@nyu.edu)
 import glb
 
 class Process():
