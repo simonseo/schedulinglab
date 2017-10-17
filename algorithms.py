@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*- 
 # @File Name: algorithms.py
 # @Created:   2017-10-16 13:50:51  seo (simon.seo@nyu.edu) 
-# @Updated:   2017-10-17 04:18:42  Simon Seo (simon.seo@nyu.edu)
+# @Updated:   2017-10-17 05:19:40  Simon Seo (simon.seo@nyu.edu)
 import sys
 import glb
 from util import Timekeeper
@@ -46,9 +46,10 @@ class RR():
 			ps.tickAll()
 			ps.updateStateAll()
 			if len(ps.getAll(lambda p: p.state == 'running')) == 0:
-				readyps = ps.getAll(lambda p: p.state == 'ready').sortByInput().sortByArrival().sortByReady()
+				readyps = ps.getAll(lambda p: p.state == 'ready').sortByReady()
 				if len(readyps) > 0:
-					readyps.pop(0).run()
+					readyp = readyps.pop(0)
+					readyp.run()
 			tk.tick()
 		print('The scheduling algorithm used was Round Robbin\n')
 		ps.printSummaryAll()
@@ -63,13 +64,18 @@ class SJF():
 	def main(self):
 		tk = glb.tk
 		ps = self.ps
-		psl = len(ps)
 		while not ps.finished():
 			if glb.v:
-				print('Before cycle{}:{}.'.format((' '*5+str(tk.getNow()))[-5:],ps))
-			
-			break
-		pass
+				print('Before cycle{}: {}.'.format((' '*5+str(tk.getNow()))[-5:],ps))
+			ps.tickAll()
+			ps.updateStateAll()
+			if len(ps.getAll(lambda p: p.state == 'running')) == 0:
+				readyps = ps.getAll(lambda p: p.state == 'ready').sortByInput().sortByArrival().sortByJob()
+				if len(readyps) > 0:
+					readyps.pop(0).run()
+			tk.tick()
+		print('The scheduling algorithm used was Shortest Job First\n')
+		ps.printSummaryAll()
 
 class HPRN():
 	"""Highest Priority Ratio Next"""
@@ -80,12 +86,16 @@ class HPRN():
 	def main(self):
 		tk = glb.tk
 		ps = self.ps
-		psl = len(ps)
 		while not ps.finished():
 			if glb.v:
-				print('Before cycle{}:{}.'.format((' '*5+str(tk.getNow()))[-5:],ps))
-			
-			break
-		pass
-						
-			
+				print('Before cycle{}: {}.'.format((' '*5+str(tk.getNow()))[-5:],ps))
+			ps.tickAll()
+			ps.updateStateAll()
+			if len(ps.getAll(lambda p: p.state == 'running')) == 0:
+				readyps = ps.getAll(lambda p: p.state == 'ready').sortByInput().sortByArrival().sortByRatio()
+				if len(readyps) > 0:
+					readyps.pop(0).run()
+			tk.tick()
+		print('The scheduling algorithm used was Highest Priority Ratio Next\n')
+		ps.printSummaryAll()
+		

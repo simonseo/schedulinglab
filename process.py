@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*- 
 # @File Name: process.py
 # @Created:   2017-10-16 11:31:12  seo (simon.seo@nyu.edu) 
-# @Updated:   2017-10-17 04:17:53  Simon Seo (simon.seo@nyu.edu)
+# @Updated:   2017-10-17 05:18:42  Simon Seo (simon.seo@nyu.edu)
 import glb
 
 class Process():
@@ -92,15 +92,14 @@ class Process():
 
 		return self.state
 
-	def ratio(self, now):
+	def ratio(self):
 		T = self.turnaroundTime
 		t = max(1, self.runningTime)
 		return T/t
 
 	def setRandomBurst(self):
-		self.burst = glb.r.randomOS(self.B)
-		# print('burst is {}'.format(self.burst))
-		self.prevBurst = self.burst
+		self.prevBurst = glb.r.randomOS(self.B)
+		self.burst = self.prevBurst
 		return
 
 	def setIOBurst(self):
@@ -109,7 +108,8 @@ class Process():
 
 	def run(self):
 		self.state = 'running'
-		self.q = glb.q
+		if glb.q:
+			self.q = glb.q
 		self.setRandomBurst()
 
 	def block(self):
@@ -150,7 +150,11 @@ class ProcessTable(list):
 		return self
 
 	def sortByRatio(self):
-		self.sort(key=lambda p: p.ratio())
+		self.sort(key=lambda p: -p.ratio())
+		return self
+
+	def sortByJob(self):
+		self.sort(key=lambda p:p.C - p.runningTime)
 		return self
 
 	def finished(self):
@@ -195,7 +199,7 @@ class ProcessTable(list):
 	I/O Utilization: {:.6f}
 	Throughput: {:.6f} processes per hundred cycles
 	Average turnaround time: {:.6f}
-	Average waiting time: {:.6f}''' \
+	Average waiting time: {:.6f}\n''' \
 				.format(finishTime, CPUutil, IOutil, Throughput, avgTurnaround, avgWaiting))
 
 
