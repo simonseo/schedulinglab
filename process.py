@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*- 
 # @File Name: process.py
 # @Created:   2017-10-16 11:31:12  seo (simon.seo@nyu.edu) 
-# @Updated:   2017-10-16 14:03:27  Simon Seo (simon.seo@nyu.edu)
-
+# @Updated:   2017-10-17 01:05:08  Simon Seo (simon.seo@nyu.edu)
+import glb
 
 class Process():
 	"""Class that simulates a process"""
@@ -43,12 +43,12 @@ class Process():
 		if self.state == 'running':
 			if self.Cleft == 0:
 				self.state = 'terminated'
-				self.finishTime = tk.getNow()
+				self.finishTime = glb.tk.getNow()
 			elif self.burst == 0:
 				self.state = 'blocked'
 			elif self.q == 0:
 				self.state = 'ready'
-				self.timeEnteredReady = tk.getNow()
+				self.timeEnteredReady = glb.tk.getNow()
 		# elif other states?
 		return self.state
 
@@ -73,7 +73,8 @@ class Process():
 		return T/t
 
 	def setRandomBurst(self):
-		self.burst = r.randomOS(self.B)
+		self.burst = glb.r.randomOS(self.B)
+		print('burst is {}'.format(self.burst))
 		self.prevBurst = self.burst
 
 	def setIOBurst(self):
@@ -85,24 +86,30 @@ class ProcessTable(list):
 		super(ProcessTable, self).__init__()
 
 	def __str__(self):
+		#    unstarted  0   unstarted  0
 		result = ''
 		for el in self:
 			result += ' {}'.format(el)
 		return result
-		#    unstarted  0   unstarted  0
 	
 	def __repr__(self):
+		# 2 (0 1 5 1) (0 1 5 1) 
 		result = str(len(self))
 		for el in self:
 			result += ' {}'.format(el.__repr__())
 		return result
-		# 2 (0 1 5 1) (0 1 5 1) 
 
 	def sortByArrival(self):
 		self.sort(key=lambda p: p.A)
 
 	def sortByInput(self, p):
 		self.sort(key=lambda p: p.i)
+
+	def finished(self):
+		for p in self:
+			if p.state != 'terminated':
+				return False
+		return True
 
 
 

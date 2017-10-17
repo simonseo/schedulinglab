@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*- 
 # @File Name: util.py
 # @Created:   2017-10-16 11:31:40  seo (simon.seo@nyu.edu) 
-# @Updated:   2017-10-16 13:40:50  Simon Seo (simon.seo@nyu.edu)
-
+# @Updated:   2017-10-17 00:53:17  Simon Seo (simon.seo@nyu.edu)
+import glb
 
 class Timekeeper():
 	"""Tracks time for all processes"""
@@ -24,7 +24,10 @@ class Random():
 	def randInt(self):
 		return int(self.file.readline().strip())
 	def randomOS(self, U):
-		return 1 + self.randInt() % U
+		randInt = self.randInt()
+		if glb.sr:
+			print('Find burst when choosing ready process to run', randInt)
+		return 1 + randInt % U
 
 def parseInput(filename):
 	"""returns list of process specs"""
