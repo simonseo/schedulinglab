@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*- 
 # @File Name: scheduler.py
 # @Created:   2017-10-13 18:57:02  seo (simon.seo@nyu.edu) 
-# @Updated:   2017-10-19 15:53:26  Simon Seo (simon.seo@nyu.edu)
+# @Updated:   2017-10-19 17:21:52  Simon Seo (simon.seo@nyu.edu)
 import sys
 from copy import deepcopy as copy
 import glb
@@ -22,10 +22,10 @@ def main():
 	if glb.v:
 		print('This detailed printout gives the state and remaining burst for each process\n')
 
-	FCFS(copy(ps))
-	RR(copy(ps), quantum=2)
-	SJF(copy(ps))
-	HPRN(copy(ps))
+	FCFS().main(copy(ps))
+	RR().main(copy(ps), quantum=2)
+	SJF().main(copy(ps))
+	HPRN().main(copy(ps))
 
 
 if __name__ == '__main__':
