@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*- 
 # @File Name: process.py
 # @Created:   2017-10-16 11:31:12  seo (simon.seo@nyu.edu) 
-# @Updated:   2017-10-17 13:01:50  Simon Seo (simon.seo@nyu.edu)
+# @Updated:   2017-10-19 15:51:19  Simon Seo (simon.seo@nyu.edu)
 import glb
 
 class Process():
@@ -17,8 +17,8 @@ class Process():
 		self.state = 'unstarted' #unstarted, ready, running, blocked, terminated
 		self.burst = 0           #time left for any state
 		self.prevBurst = 0       #length of previous burst (used for calculating ioburst)
-		self.Cleft = C           #CPU time left
-		self.q = 2               #quantum left for RR
+		self.remC = C           #CPU time remaining
+		self.countDown = glb.q               #quantum left for RR
 		self.timeEnteredReady = None    #to find the earliest one
 
 		self.finishTime = None          #time when process finishes
@@ -36,7 +36,7 @@ class Process():
 
 	def __str__(self):
 		stateStr = (' '*10 + self.state)[-10:]
-		burstStr = (' '*3 + str(self.burst if not glb.q else self.q))[-3:]
+		burstStr = (' '*3 + str(self.burst if not glb.q else self.countDown))[-3:]
 		return stateStr + burstStr
 
 	def printSummary(self):
@@ -53,8 +53,8 @@ class Process():
 			self.turnaroundTime += 1
 			if state == 'running':
 				self.burst -= 1 if self.burst > 0 else 0
-				self.Cleft -= 1
-				self.q -= 1 if glb.q > 0 else 0
+				self.remC -= 1
+				self.countDown -= 1 if glb.q > 0 else 0
 				self.runningTime += 1
 			elif state == 'ready':
 				self.waitingTime += 1
@@ -67,21 +67,19 @@ class Process():
 		'''update state based on new time calculations'''
 		now = glb.tk.getNow()
 		if self.state == 'running':
-			if self.Cleft == 0:
+			if self.remC == 0:
 				self.state = 'terminated'
 				self.finishTime = now
 			elif self.burst == 0:
 				self.block()
-			elif self.q == 0:
+			elif self.countDown == 0:
 				self.preempt()
 		elif self.state == 'unstarted':
 			if now == self.A:
-				self.state = 'ready'
-				self.timeEnteredReady = now
+				self.unblock()
 		elif self.state == 'blocked':
 			if self.burst == 0:
-				self.state = 'ready'
-				self.timeEnteredReady = now
+				self.unblock()
 		elif self.state == 'ready':
 			# ready processes are handled by the scheduler algorithm
 			pass
@@ -108,7 +106,7 @@ class Process():
 	def run(self):
 		self.state = 'running'
 		if glb.q:
-			self.q = glb.q
+			self.countDown = glb.q
 		if self.burst == 0:
 			self.setRandomBurst()
 
@@ -116,11 +114,15 @@ class Process():
 		self.state = 'blocked'
 		self.setIOBurst()
 
-	def preempt(self):
+	def _ready(self):
 		self.state = 'ready'
 		self.timeEnteredReady = glb.tk.getNow()
-		# self.q_burst = self.burst
-		# self.burst 
+
+	def unblock(self):
+		return self._ready()
+
+	def preempt(self):
+		return self._ready()
 
 class ProcessTable(list):
 	"""docstring for ProcessTable"""

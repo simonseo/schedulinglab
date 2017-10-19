@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*- 
 # @File Name: scheduler.py
 # @Created:   2017-10-13 18:57:02  seo (simon.seo@nyu.edu) 
-# @Updated:   2017-10-17 13:04:03  Simon Seo (simon.seo@nyu.edu)
+# @Updated:   2017-10-19 15:53:26  Simon Seo (simon.seo@nyu.edu)
 import sys
 from copy import deepcopy as copy
 import glb
